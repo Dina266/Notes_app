@@ -17,16 +17,16 @@ class CustomTextField extends StatelessWidget {
       maxLines: hintText == 'Content' ? 7 : null,
       onChanged: onChanged,
       decoration: InputDecoration(
-        focusedBorder: BuildBorder(kPrimaryColor),
-        enabledBorder: BuildBorder(),
-        border: BuildBorder(),
+        focusedBorder: buildBorder(kPrimaryColor),
+        enabledBorder: buildBorder(),
+        border: buildBorder(),
         hintText: hintText,
         hintStyle: TextStyle(color: kPrimaryColor ,),
       ),
     );
   }
 
-  OutlineInputBorder BuildBorder([color]) {
+  OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
           borderSide:  BorderSide(color: color?? Colors.white));
