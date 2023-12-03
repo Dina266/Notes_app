@@ -13,9 +13,9 @@ class NoteItemBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        List <NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes?? [];
+        List <NoteModel> notes = BlocProvider.of<NotesCubit>(context).fetchAllNotes();
         return ListView.builder(
-          itemCount: notes.length,
+            itemCount: notes.length,
             itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4),
                   child: GestureDetector(
@@ -24,7 +24,9 @@ class NoteItemBuilder extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => const EditNote(),
                           )),
-                      child: const NoteItem()),
+                      child: NoteItem(
+                        note: notes[index],
+                      )),
                 ));
       },
     );
