@@ -9,6 +9,7 @@ import 'notes_item.dart';
 class NoteItemBuilder extends StatelessWidget {
   const NoteItemBuilder({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
@@ -22,7 +23,7 @@ class NoteItemBuilder extends StatelessWidget {
                       onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const EditNote(),
+                            builder: (context) => EditNote(notes: notes[index],),
                           )),
                       child: NoteItem(
                         note: notes[index],
