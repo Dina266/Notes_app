@@ -45,7 +45,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 7,
           ),
-          ColorListItem(),
+          const SizedBox(
+            height: 10,
+          ),
+          const ColorListItem(),
           const SizedBox(
             height: 30,
           ),
@@ -61,7 +64,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                               title: title!,
                               subTitle: subTitle!,
                               date: DateTime.now().toString(),
-                              color: Colors.blue.value);
+                              color: BlocProvider.of<AddNoteCubit>(context).color.value);
           
                           BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                         } else {
